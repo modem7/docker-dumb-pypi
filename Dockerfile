@@ -15,4 +15,4 @@ RUN set -ex \
     && python3 -m pip install --no-cache-dir -r 'requirements.txt' \
     && rm 'requirements.txt'
 
-ENTRYPOINT ["dumb-pypi"]
+CMD ["dumb-pypi"]
