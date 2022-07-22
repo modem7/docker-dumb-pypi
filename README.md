@@ -16,7 +16,7 @@ Container image with dumb-pypi package.
 | Tag | Description |
 | :----: | --- |
 | Latest | Latest version of Dumb-Pypi |
-| 1.9.x | Specific versions of Dumb-Pypi |
+| 1.x.x | Specific versions of Dumb-Pypi |
 
 ## Instructions
 [Example](https://github.com/modem7/PyPI/blob/gh-pages/build_borg_wheels.sh#L18-L20):
