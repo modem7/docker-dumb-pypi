@@ -1,6 +1,6 @@
 # syntax = docker/dockerfile:1
 
-FROM python:3.10.5-alpine3.16
+FROM python:3.11.0b5-alpine3.16
 
 ENV PYTHONUNBUFFERED 1
 
