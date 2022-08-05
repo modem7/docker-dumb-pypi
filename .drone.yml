@@ -9,6 +9,16 @@ platform:
   arch: amd64
 
 steps:
+- name: Trigger
+  image: plugins/git
+  commands:
+    - test $DRONE_BUILD_EVENT = pull_request
+      && DIFF_STRING=origin/${DRONE_COMMIT_BRANCH:-master}
+      || DIFF_STRING=${DRONE_COMMIT_SHA}~
+    - git --no-pager diff --name-only $DIFF_STRING
+      | grep -q -e ^[.]drone[.] -e ^Dockerfile$ -e ^requirements[.]
+      || exit 78
+
 - name: Lint Dockerfile
   image: hadolint/hadolint:latest-alpine
   pull: if-not-exists
@@ -38,7 +48,7 @@ steps:
     tags:
       - latest
 
-- name: pushrm-dockerhub
+- name: Pushrm-dockerhub
   image: chko/docker-pushrm
   environment:
     DOCKER_USER:
@@ -62,4 +72,7 @@ steps:
 
 trigger:
   event:
+    include:
+    - push
     - custom
+#    - custom
