@@ -1,6 +1,6 @@
 # syntax = docker/dockerfile:latest
 
-FROM python:3.11.1-alpine3.16
+FROM python:3.11.1-alpine3.17
 
 LABEL mainainer='modem7'
 
