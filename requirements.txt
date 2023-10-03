@@ -1,1 +1,1 @@
-dumb-pypi==1.14.1
+dumb-pypi==1.15.0
